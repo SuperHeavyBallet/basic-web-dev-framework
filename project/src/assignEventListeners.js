@@ -1,24 +1,48 @@
 export default function assignEventListeners(){
 
-const menuButton = document.querySelector(".menu-icon");
-console.log(menuButton);
-const menuItems = document.querySelector(".menu-items");
-let menuShown = false;
+const menuButton = document.querySelectorAll(".menu-icon");
+const menuButtonArray = [...menuButton];
+const menuItems = document.querySelector(".dropdown-content");
+let myTimeout;
 
-menuButton.addEventListener("click", () => {
+function myStopFunction(){
+    clearTimeout(myTimeout);
+}
 
-    if (menuShown === false)
-    {
-        menuShown = true;
-        menuItems.classList.remove("menu-items-hidden");
-        menuItems.classList.add("menu-items-display");
+function hideMenu(){
+    menuItems.classList.remove("dropdown-content-display");
+    menuItems.classList.add("dropdown-content-hidden");
+}
 
-    }
-    else if (menuShown === true)
-    {
-        menuShown = false;
-        menuItems.classList.remove("menu-items-display");
-        menuItems.classList.add("menu-items-hidden");
-    }
-})
+
+
+
+
+menuButtonArray.forEach((element) =>
+{
+    element.addEventListener("mousemove", () => {
+
+        menuItems.classList.remove("dropdown-content-hidden");
+        menuItems.classList.add("dropdown-content-display");
+        myStopFunction();
+
+
+    });
+
+    element.addEventListener("mouseout", () => {
+
+        
+        myTimeout = setTimeout(hideMenu, 350);
+    });
+
+
+
+});
+
+
+
+
+
+
+
 }
