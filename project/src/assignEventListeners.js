@@ -1,8 +1,9 @@
-export default function assignEventListeners(){
+export default function assignEventListeners(menuIcon, menuElements, dropdownContent, displayClass,hideClass){
 
-const menuButton = document.querySelectorAll(".menu-icon");
-const menuButtonArray = [...menuButton];
-const menuItems = document.querySelector(".dropdown-content");
+const menuButton = document.querySelectorAll(menuIcon );
+const menuElement = document.querySelectorAll(menuElements);
+const menuButtonArray = [...menuButton, ...menuElement];
+const menuItems = document.querySelector(dropdownContent);
 let myTimeout;
 
 function myStopFunction(){
@@ -10,8 +11,8 @@ function myStopFunction(){
 }
 
 function hideMenu(){
-    menuItems.classList.remove("dropdown-content-display");
-    menuItems.classList.add("dropdown-content-hidden");
+    menuItems.classList.remove(displayClass);
+    menuItems.classList.add(hideClass);
 }
 
 
@@ -22,8 +23,8 @@ menuButtonArray.forEach((element) =>
 {
     element.addEventListener("mousemove", () => {
 
-        menuItems.classList.remove("dropdown-content-hidden");
-        menuItems.classList.add("dropdown-content-display");
+        menuItems.classList.remove(hideClass);
+        menuItems.classList.add(displayClass);
         myStopFunction();
 
 
@@ -32,7 +33,7 @@ menuButtonArray.forEach((element) =>
     element.addEventListener("mouseout", () => {
 
         
-        myTimeout = setTimeout(hideMenu, 350);
+        myTimeout = setTimeout(hideMenu, 300);
     });
 
 
