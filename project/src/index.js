@@ -1,4 +1,5 @@
 import assignEventListeners from "./assignEventListeners";
+import carouselControl from "./carousel";
 
 
 assignEventListeners(
@@ -8,3 +9,5 @@ assignEventListeners(
     "dropdown-content-display", 
     "dropdown-content-hidden" 
     );
+
+carouselControl();
