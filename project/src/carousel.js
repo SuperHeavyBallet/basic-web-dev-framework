@@ -6,6 +6,8 @@ export default function carouselControl(){
         clearTimeout(myTimeout);
     }
 
+
+
     function autoSwitch()
     {
 
@@ -23,18 +25,21 @@ export default function carouselControl(){
         slides[newIndex].dataset.active = true;
         delete activeSlide.dataset.active;
 
-        // myStopFunction();
-        // myTimeout = setTimeout(autoSwitch, 5000);
+        myStopFunction();
+        myTimeout = setTimeout(autoSwitch, 5000);
     }
 
     const buttons = document.querySelectorAll("[data-carousel-button]");
 
+    
+
     buttons.forEach(button => {
         button.addEventListener("click", () => {
+
+            myStopFunction();
+
             const offset = button.dataset.carouselButton === "next" ? 1 : -1;
-            const slides = button
-            .closest("[data-carousel]")
-            .querySelector("[data-slides]");
+            const slides = document.querySelector("[data-slides]");
 
             const activeSlide = slides.querySelector("[data-active]");
             let newIndex = [...slides.children].indexOf(activeSlide) + offset
@@ -45,8 +50,9 @@ export default function carouselControl(){
             slides.children[newIndex].dataset.active = true;
             delete activeSlide.dataset.active;
 
-            // myStopFunction();
-            // autoSwitch();
+            myTimeout = setTimeout(autoSwitch, 5000);
+
+            
         })
     })
 
@@ -54,7 +60,7 @@ export default function carouselControl(){
 
     
 
-    // autoSwitch();
+    autoSwitch();
 
     
 
