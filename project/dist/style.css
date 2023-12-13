@@ -102,7 +102,92 @@
    margin-top: 7vh;
    display: flex;
    flex-direction: column;
+
+   
 }
+
+.image-carousel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: center;
+}
+
+.carousel > ul{
+    list-style: none;
+    display: grid;
+    padding: 1vw;
+    margin: 0;
+    
+
+}
+
+.carousel-button{
+    height: 30px;
+    transform: translateY(500%);
+    background-color: rgba(0, 0, 0, 0.158);
+    border: 0;
+    outline: 0;
+    color: rgba(255, 255, 255, 0.521);
+    
+}
+
+.carousel-button:hover,
+.carousel-button:focus{
+    background-color: rgba(0, 0, 0, 0.466);
+    color: rgba(255, 255, 255, 0.781);
+    cursor: pointer;
+    outline: 1px solid black;
+}
+
+.img-circles{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.circle{
+    margin: 0.3vh 0.3vw;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0.25;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.circle[data-active]{
+    opacity: 0.8;
+
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    
+
+    
+    
+}
+
+.slide{
+    grid-column: 1;
+    grid-row: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.slide[data-active]{
+    opacity: 1;
+}
+
 
 
 

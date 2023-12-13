@@ -28,15 +28,16 @@
 <div class="body-area">
 
  <section aria-label="Newest Photos">
-    <button class="carousel-button prev" data-carousel-button="prev">&#8647;</button>
+    
+    <div class="image-carousel">
     <div class="carousel" data-carousel>
-        
+        <button class="carousel-button prev" data-carousel-button="prev">&#8647;</button>
         
         <ul data-slides>
-            <li class="slide" >
+            <li class="slide" data-active>
                 <img src="/src/images/pig-fence_square.webp" alt="A pig on a fence #1">
             </li>
-            <li class="slide" data-active>
+            <li class="slide" >
                 <img src="/src/images/brown-Guernsey-cow.webp" alt="A pig on a fence #1">
             </li>
             <li class="slide">
@@ -44,19 +45,21 @@
             </li>
         </ul>
 
+        <button class="carousel-button next" data-carousel-button="next">&#8649;</button>
         
         
 
 
     </div>
-    <button class="carousel-button next" data-carousel-button="next">&#8649;</button>
+
+    
     <div class="img-circles">
-        <div class="circle">.</div>
-        <div class="circle">.</div>
-        <div class="circle">.</div>
-        <div class="circle">.</div>
+        <div class="circle" data-active></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
 
     </div>
+</div>
 
 </div>
  </section>
