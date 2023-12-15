@@ -53,4 +53,23 @@ export default function newCarousel()
     }
 
     autoSwitch();
+
+
+    const nextButton = document.querySelector(".next");
+    const prevButton = document.querySelector(".prev");
+
+    nextButton.addEventListener("click", () =>
+    {
+
+        myStopFunction();
+
+        
+        autoSwitch();
+    }
+    );
+
+    prevButton.addEventListener("click", () =>
+
+    console.log(prevButton)
+    );
 }
