@@ -1,7 +1,7 @@
 export default function newCarousel()
 {
-    const imageSlides = document.querySelectorAll(".slide");
-    const arrayOfImageSlides = [...imageSlides];
+
+
 
 
     let myTimeout;
@@ -15,9 +15,6 @@ export default function newCarousel()
     {
         const slides = Array.from(document.querySelectorAll(".slide"));
         const circles = Array.from(document.querySelectorAll(".circle"));
-
-        console.log(slides);
-        console.log(circles);
 
         for (let i = 0; i < slides.length; i+=1)
         {
@@ -34,11 +31,11 @@ export default function newCarousel()
         {
             slides[0].setAttribute("data-active", "true");
             circles[0].setAttribute("data-active", "true");
-            console.log("ACT !" , activeSlide);
+   
         }
         else
         {
-            console.log("ACT" , activeSlide);
+
 
             let newIndex = slides.indexOf(activeSlide) + indexShift;
             let newCircleIndex = circles.indexOf(activeCircle) + indexShift;
@@ -58,7 +55,7 @@ export default function newCarousel()
             }
 
            
-
+        
             slides[newIndex].setAttribute("data-active", "true");
             delete activeSlide.dataset.active;
 
@@ -71,7 +68,6 @@ export default function newCarousel()
         
 
         myStopFunction();
-        // myTimeout = setTimeout(autoSwitch, 5000);
 
         myTimeout = setTimeout(() => 
         {
@@ -105,8 +101,42 @@ export default function newCarousel()
             
         autoSwitch(-1);
 
-    // Work this to use argument of -1 to send into Auto switch,
-    // all inputs should be able to use autoswitch
     }
     );
+
+    
+
+    function clickedCircle(i, slides, circles)
+    {
+        myStopFunction();
+            const activeSlide = slides.find(slide => slide.getAttribute("data-active") === "true");
+            const activeCircle = circles.find(circle => circle.getAttribute("data-active") === "true");
+
+            delete activeSlide.dataset.active;
+            delete activeCircle.dataset.active;
+
+            console.log(slides[i]);
+            slides[i].setAttribute("data-active", "true");
+            circles[i].setAttribute("data-active", "true");
+            
+            myTimeout = setTimeout(() => 
+        {
+            autoSwitch(1);
+        }, 5000);
+    }
+
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const circles = Array.from(document.querySelectorAll(".circle"));
+
+    for (let i = 0; i < circles.length; i += 1)
+    {
+        circles[i].addEventListener(("click"), () => 
+        {
+            
+            clickedCircle(i, slides, circles);
+
+        });
+            
+       
+    }
 }
