@@ -1,5 +1,5 @@
 import assignEventListeners from "./assignEventListeners";
-import newCarousel from "./newCarousel";
+import imageCarousel from "./imageCarousel";
 
 
 assignEventListeners(
@@ -10,5 +10,5 @@ assignEventListeners(
     "dropdown-content-hidden" 
     );
 
-    newCarousel();
+    imageCarousel();
 
